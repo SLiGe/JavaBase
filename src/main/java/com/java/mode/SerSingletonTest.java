@@ -24,6 +24,7 @@ public class SerSingletonTest {
         FileInputStream fis = new FileInputStream("SerSingleton.txt");
         ObjectInputStream ois = new ObjectInputStream(fis);
         s = (SerSingleton) ois.readObject();
+        //如果将readResolve去除，则会实例化多个对象，加上本方法会阻止实例化，返回源对象
         Assert.assertEquals(s, s1);
     }
 
@@ -36,6 +37,15 @@ public class SerSingletonTest {
             }
             System.out.println(System.currentTimeMillis() - beginTime);
         }).run();
+    }
 
+    @Test
+    public void testLazySerSingleton() {
+        LazySerSingleton.createString();
+    }
+
+    @Test
+    public void testCommonSerSingleton() {
+        SerSingletonOne.createString();
     }
 }

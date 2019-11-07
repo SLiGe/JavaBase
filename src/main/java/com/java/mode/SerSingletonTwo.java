@@ -2,6 +2,7 @@ package com.java.mode;
 
 /**
  * 单例模式
+ * 此方式最佳
  *
  * @author : Gary
  * @since 2019/11/07 13:59
