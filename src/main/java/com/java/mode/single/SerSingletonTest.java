@@ -1,4 +1,4 @@
-package com.java.mode;
+package com.java.mode.single;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -34,7 +34,7 @@ public class SerSingletonTest {
         long beginTime = System.currentTimeMillis();
         new Thread(() -> {
             for (int i = 0; i < 1000; i++) {
-                SerSingletonTwo.getInstance();
+                SerSingletonByHolder.getInstance();
             }
             System.out.println(System.currentTimeMillis() - beginTime);
         }).run();

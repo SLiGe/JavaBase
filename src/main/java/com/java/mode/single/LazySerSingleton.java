@@ -1,4 +1,4 @@
-package com.java.mode;
+package com.java.mode.single;
 
 /**
  * 单例模式延迟加载

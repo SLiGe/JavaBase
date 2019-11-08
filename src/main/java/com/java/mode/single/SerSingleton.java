@@ -1,4 +1,4 @@
-package com.java.mode;
+package com.java.mode.single;
 
 
 import java.io.Serializable;

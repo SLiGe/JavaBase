@@ -1,4 +1,4 @@
-package com.java.mode;
+package com.java.mode.single;
 
 /**
  * 单例模式
@@ -7,14 +7,14 @@ package com.java.mode;
  * @author : Gary
  * @since 2019/11/07 13:59
  */
-public class SerSingletonTwo {
+public class SerSingletonByHolder {
 
     /**
      * 私有化构造器，防止实例化
      */
-    private SerSingletonTwo() {
+    private SerSingletonByHolder() {
         //创建单例过程可能较慢
-        System.out.println("SerSingletonTwo is create!!!");
+        System.out.println("SerSingletonByHolder is create!!!");
     }
 
     /**
@@ -23,10 +23,10 @@ public class SerSingletonTwo {
      * 只有getInstance()被调用时，才会加载SerSingletonTwo,从而初始化instance
      */
     private static class SerSingletonTwoHolder {
-        private static SerSingletonTwo instance = new SerSingletonTwo();
+        private static SerSingletonByHolder instance = new SerSingletonByHolder();
     }
 
-    public static SerSingletonTwo getInstance() {
+    public static SerSingletonByHolder getInstance() {
         return SerSingletonTwoHolder.instance;
     }
 }
