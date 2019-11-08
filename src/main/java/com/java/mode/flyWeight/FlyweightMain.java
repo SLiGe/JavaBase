@@ -14,7 +14,6 @@ public class FlyweightMain {
         reportManager.createReport();
         IReportManager financialReportManager = managerFactory.getFinancialReportManager("B");
         financialReportManager.createReport();
-
         System.out.println("------分割线-------");
         managerFactory.getEmployeeReportManager("A").createReport();
         managerFactory.getFinancialReportManager("B").createReport();
