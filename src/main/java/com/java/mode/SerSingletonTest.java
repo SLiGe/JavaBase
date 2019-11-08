@@ -24,6 +24,7 @@ public class SerSingletonTest {
         FileInputStream fis = new FileInputStream("SerSingleton.txt");
         ObjectInputStream ois = new ObjectInputStream(fis);
         s = (SerSingleton) ois.readObject();
+        ois.close();
         //如果将readResolve去除，则会实例化多个对象，加上本方法会阻止实例化，返回源对象
         Assert.assertEquals(s, s1);
     }
