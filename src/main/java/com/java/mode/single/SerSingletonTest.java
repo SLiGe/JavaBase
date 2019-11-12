@@ -32,12 +32,14 @@ public class SerSingletonTest {
     @Test
     public void testCreateSerSingletonTime() {
         long beginTime = System.currentTimeMillis();
-        new Thread(() -> {
+        Thread thread = new Thread(() -> {
             for (int i = 0; i < 1000; i++) {
                 SerSingletonByHolder.getInstance();
             }
             System.out.println(System.currentTimeMillis() - beginTime);
-        }).run();
+        });
+        thread.setDaemon(false);
+        thread.start();
     }
 
     @Test

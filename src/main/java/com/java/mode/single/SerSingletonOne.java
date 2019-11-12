@@ -17,6 +17,6 @@ public class SerSingletonOne {
     }
 
     public static void createString() {
-        System.out.println("create string in LazySerSingleton!!");
+        System.out.println("create string in SerSingletonOne!!");
     }
 }

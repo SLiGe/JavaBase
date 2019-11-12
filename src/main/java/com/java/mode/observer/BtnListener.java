@@ -3,6 +3,9 @@ package com.java.mode.observer;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * 观察者模式:用于事件监听，通知发布等场景，可以确保观察者在不使用轮询监控下，及时收到相关消息和事件
@@ -31,7 +34,19 @@ public class BtnListener implements ActionListener {
         //在具体主题中，加入观察者
         btn.addActionListener(new BtnListener());
         p.add(btn);
+        StringBuilder sb = new StringBuilder();
+        sb.append("JGB");
+        Date date = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
+        String format = dateFormat.format(date);
+        sb.append(format);
+        String s = String.valueOf(System.currentTimeMillis());
+        sb.append(s, s.length()-5, s.length()-1);
+        JTextField jTextField = new JTextField(sb.toString());
+        p.add(jTextField);
+        p.setLocation(200,400);
         p.pack();
         p.setVisible(true);
+
     }
 }
