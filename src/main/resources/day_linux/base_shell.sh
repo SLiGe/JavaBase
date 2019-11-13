@@ -43,3 +43,25 @@ EOF
 
 echo "Shell param";
 echo "run file：$0";
+
+function getLog() {
+    a=3
+    b=2
+    if [[ ${a} -gt ${b} ]]
+    then
+        echo "${a}>${b}"
+    else
+        echo "${a}<${b}"
+    fi
+    echo "One function!"
+}
+getLog
+
+tomcat_id=`ps -ef | grep tomcat | grep -v "grep" | awk '{print $2}'`
+echo ${tomcat_id}
+
+for id in ${tomcat_id}
+do
+    kill -9 ${id}
+    echo "killed ${id} "
+done
