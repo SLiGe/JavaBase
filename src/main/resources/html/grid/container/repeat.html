@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>容器布局</title>
+    <style type="text/css">
+        span {
+            font-size: 2em;
+        }
+
+        #container {
+            display: grid;
+            /*repeat() 参数：1.重复次数 2.要重复的值。 ps:重复某种模式也是可以的 */
+            grid-template-columns:repeat(2,50px 20px 80px); /*6列*/
+            grid-template-rows: repeat(3, 100px);
+        }
+
+        .item {
+            font-size: 2em;
+            text-align: center;
+            border: 1px solid #e5e4e9;
+        }
+
+        .item1 {
+            background-color: aqua;
+        }
+
+        .item2 {
+            background-color: fuchsia;
+        }
+
+        .item3 {
+            background-color: aliceblue;
+        }
+
+        .item4 {
+            background-color: blueviolet;
+        }
+
+        .item5 {
+            background-color: #ff8fff;
+        }
+
+        .item6 {
+            background-color: #ff8744;
+        }
+
+        .item7 {
+            background-color: #2eff69;
+        }
+
+        .item8 {
+            background-color: #3bff46;
+        }
+
+        .item9 {
+            background-color: #3ad5ff;
+        }
+    </style>
+</head>
+<body>
+<!--采用网格布局的区域，称为"容器"（container）。容器内部采用网格定位的子元素，称为"项目"（item）。-->
+<!--注意，设为网格布局以后，容器子元素（项目）的float、display: inline-block、display: table-cell、vertical-align和column-*等设置都将失效。-->
+<span>foo</span>
+<div id="container">
+    <div class="item item1">1</div>
+    <div class="item item2">2</div>
+    <div class="item item3">3</div>
+    <div class="item item4">4</div>
+    <div class="item item5">5</div>
+    <div class="item item6">6</div>
+    <div class="item item7">7</div>
+    <div class="item item8">8</div>
+    <div class="item item9">9</div>
+</div>
+<span>bar</span>
+</body>
+</html>
