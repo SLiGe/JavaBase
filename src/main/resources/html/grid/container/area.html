@@ -10,9 +10,20 @@
 
         #container {
             display: grid;
-            /*minmax() 产生一个长度范围 参数:1.最小值，2.最大值*/
-            grid-template-columns: 100px auto minmax(100px, 1fr);
+            /*auto让浏览器觉得列宽，基本上等于该列单元格的最大宽度，除非单元格内容设置了min-width，且这个值大于最大宽度*/
+            grid-template-columns: 100px 100px 100px;
             grid-template-rows: 100px 100px 100px;
+            grid-template-areas: 'a b c' 'd e f' 'g h i';
+            /*合并*/
+            /* grid-template-areas:'a a a'
+                                 'b b b'
+                                 'c c c';*/
+            /*grid-template-areas: "header header header" "main main sidebar" "footer footer footer";*/
+            /* grid-template-areas: 'a . c'
+             'd . f'!*某些地区不需要利用，使用.代替*!
+             'g . i';*/
+            grid-auto-flow: row dense; /*默认为row，改变为column则为先列后行*/ /*row dense和column dense。这两个值主要用于，某些项目指定位置以后，剩下的项目怎么自动放置。*/
+            /*justify-content: space-evenly;*/
         }
 
         .item {
@@ -23,10 +34,16 @@
 
         .item1 {
             background-color: aqua;
+            grid-column: span 2;
+            grid-row: span 2;
+            grid-area: e;
+            justify-self: start;
         }
 
         .item2 {
             background-color: fuchsia;
+            grid-column-start: 1;
+            grid-column-end: 3;
         }
 
         .item3 {

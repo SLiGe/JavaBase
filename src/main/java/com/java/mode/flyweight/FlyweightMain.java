@@ -1,4 +1,4 @@
-package com.java.mode.flyWeight;
+package com.java.mode.flyweight;
 
 /**
  * 享元调用者

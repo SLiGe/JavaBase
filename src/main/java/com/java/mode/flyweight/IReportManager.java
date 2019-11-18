@@ -1,4 +1,4 @@
-package com.java.mode.flyWeight;
+package com.java.mode.flyweight;
 
 /**
  * 享元模式:如果在一个系统中存在多个相同的对象,那么只需要共享一份对象的拷贝,而不必为每一次使用都创建新的对象

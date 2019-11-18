@@ -1,4 +1,4 @@
-package com.java.mode.flyWeight;
+package com.java.mode.flyweight;
 
 import java.util.HashMap;
 import java.util.Map;

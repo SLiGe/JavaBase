@@ -22,5 +22,13 @@ public class FactoryPatternDemo {
 
         Shape shape4 = (Shape)ShapeFactory.getObject(Square.class);
         shape4.draw();
+
+        Rectangle obj = shapeFactory.getObj(Rectangle.class);
+        obj.draw();
+        Rectangle obj1 = shapeFactory.getObj(Rectangle.class);
+        obj1.draw();
+
+        Shape shape5 = ShapeFactory.getShape(ShapeType.SQUARE);
+        shape5.draw();
     }
 }
