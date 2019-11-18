@@ -95,5 +95,8 @@ docker -v                             #查看Docker版本
 ```bash
 docker load < 文件名.tar       #导入镜像
 docker images                 #查看镜像
+docker run --name 指定名称 -d image #-d 守护式容器
+docker ps                     #查看正在运行的容器
+docker attach --sig-proxy=false containerId #连接到容器查看日志
 
 ```
