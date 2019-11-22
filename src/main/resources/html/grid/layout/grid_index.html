@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>响应式布局</title>
+        <style type="text/css">
+            .container {
+                display: grid;
+                grid-template-columns: 50px 350px 50px;
+                grid-template-rows: repeat(3, 100px);
+                grid-gap: 5px;
+                grid-template-areas: "h h h h h h h h h h h h" "m m c c c c c c c c c c" "f f f f f f f f f f f f";
+            }
+
+            #header {
+                background-color: #2eff69;
+            }
+
+            #main {
+                background-color: #3ad5ff;
+            }
+
+            #footer {
+                background-color: #ff8744;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div id="header"></div>
+            <div id="main"></div>
+            <div id="footer"></div>
+        </div>
+    </body>
+</html>
