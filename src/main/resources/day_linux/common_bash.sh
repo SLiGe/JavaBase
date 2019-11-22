@@ -38,3 +38,9 @@ source /etc/profile     #刷新配置文件
 #7.目录
 cp -r /dir /toDir #复制多级目录
 mkdir -p /dir/1/2 #创建多级目录
+chown -R root:root /tmp/src #将目录 /tmp/src 中所有文件的所有者和组更改为用户 root 和组 root
+
+
+#8.用户
+groupadd groupname #创建组
+useradd -g groupname username #创建用户并指定组
