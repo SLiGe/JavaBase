@@ -30,6 +30,9 @@ public class Demo1 {
     }
 
     private synchronized void m3() {
+        /*
+         * 在同步方法内可以调用其他同步锁，重用申请到的锁*/
+        m2();
         System.out.println(Thread.currentThread().getName() + " is running!");
         count++;
     }
