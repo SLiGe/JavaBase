@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis_learn.mapper.StudentMapper">
+    <resultMap id="stu" type="student">
+        <result column="s_id" jdbcType="VARCHAR" property="sId"/>
+        <result column="s_name" jdbcType="VARCHAR" property="sName"/>
+        <result column="s_birth" jdbcType="VARCHAR" property="sBirth"/>
+        <result column="s_sex" jdbcType="VARCHAR" property="sSex"/>
+    </resultMap>
+    <select id="selectStudent" parameterType="string" resultMap="stu">
+        select *
+        from Student
+        where s_id = #{id}
+    </select>
+
+    <select id="selectForEnum" resultType="studentWithEnum">
+        select *
+        from Student limit 1
+    </select>
+</mapper>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="mybatis/mybatis.properties">
+        <property name="ip" value="127.0.0.1"/>
+        <property name="port" value="3306"/>
+        <property name="org.apache.ibatis.parsing.PropertyParser.enable-default-value" value="true"/> <!-- 启用默认值特性 -->
+    </properties>
+    <settings>
+        <setting name="cacheEnabled" value="true"/>
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <setting name="multipleResultSetsEnabled" value="true"/>
+        <setting name="useColumnLabel" value="true"/>
+        <setting name="useGeneratedKeys" value="false"/>
+        <setting name="autoMappingBehavior" value="PARTIAL"/>
+        <setting name="autoMappingUnknownColumnBehavior" value="WARNING"/>
+        <setting name="defaultExecutorType" value="SIMPLE"/>
+        <setting name="defaultStatementTimeout" value="25"/>
+        <setting name="defaultFetchSize" value="100"/>
+        <setting name="safeRowBoundsEnabled" value="false"/>
+        <!--驼峰命名-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <setting name="localCacheScope" value="SESSION"/>
+        <setting name="jdbcTypeForNull" value="OTHER"/>
+        <setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString"/>
+        <setting name="logPrefix" value="mybatis_learn"/>
+        <setting name="logImpl" value="org.apache.ibatis.logging.log4j.Log4jImpl"/>
+        <setting name="proxyFactory" value="CGLIB"/>
+    </settings>
+    <!--类型别名-->
+    <typeAliases>
+        <!--定义包，mybatis会去包下搜索别名,规则为类名首字母小写-->
+        <package name="com.mybatis_learn.pojo"/>
+        <!--<typeAlias type="com.mybatis_learn.pojo.Student" alias="student"/>-->
+    </typeAliases>
+    <!--自定义类型处理器-->
+    <typeHandlers>
+        <!--在类型处理器的类上（TypeHandler class）增加一个 @MappedTypes 注解来指定与其关联的 Java 类型列表。
+        如果在 javaType 属性中也同时指定，则注解方式将被忽略-->
+        <typeHandler handler="com.mybatis_learn.handler.ExampleTypeHandler" javaType="String"/>
+    </typeHandlers>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://127.0.0.1:${port:3306}/test?serverTimezone=UTC"/>
+                <property name="username" value="root"/>
+                <property name="password" value="12345"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="mybatis/mapper/StudentMapper.xml"/>
+    </mappers>
+
+</configuration>

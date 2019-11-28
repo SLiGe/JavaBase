@@ -15,3 +15,16 @@ INSERT INTO 新表(字段1,字段2,.......) SELECT 字段1,字段2,...... FROM �
 
 -- 5.重置表自增值
 ALTER TABLE table_name AUTO_INCREMENT = 1;
+
+-- MySQL中查询所有数据库名和表名
+-- 1.查询所有数据库
+show databases;
+
+-- 2.查询指定数据库中所有表名
+select table_name from information_schema.tables where table_schema='database_name' and table_type='base table';
+
+-- 3.查询指定表中的所有字段名
+select column_name from information_schema.columns where table_schema='database_name' and table_name='table_name';
+
+-- 4.查询指定表中的所有字段名和字段类型
+select column_name,data_type from information_schema.columns where table_schema='database_name' and table_name='table_name';
