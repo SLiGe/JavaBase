@@ -1,4 +1,4 @@
-package com.java.thread.sychronized;
+package com.java.thread.synchronizeds;
 
 /**
  * @author Gary
