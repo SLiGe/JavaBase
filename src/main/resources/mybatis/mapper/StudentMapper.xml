@@ -15,8 +15,17 @@
         where s_id = #{id}
     </select>
 
+    <resultMap id="stu2" type="studentWithEnum">
+        <result column="s_id" jdbcType="VARCHAR" property="sId"/>
+        <result column="s_name" jdbcType="VARCHAR" property="sName"/>
+        <result column="s_birth" jdbcType="VARCHAR" property="sBirth"/>
+        <!--自动映射器（auto-mapper）会自动地选用 EnumOrdinalTypeHandler 来处理，
+        所以如果我们想用普通的 EnumTypeHandler，就必须要显式地为那些 SQL 语句设置要使用的类型处理器。-->
+        <result column="s_sex" property="sSex" typeHandler="org.apache.ibatis.type.EnumTypeHandler"/>
+    </resultMap>
     <select id="selectForEnum" resultType="studentWithEnum">
         select *
-        from Student limit 1
+        from Student
+        limit 1
     </select>
 </mapper>

@@ -3,6 +3,7 @@ package com.mybatis_learn;
 import com.mybatis_learn.mapper.StudentMapper;
 import com.mybatis_learn.pojo.Student;
 import com.mybatis_learn.pojo.StudentWithEnum;
+import com.mybatis_learn.session.SqlSessionBuilder;
 import org.apache.ibatis.datasource.pooled.PooledDataSource;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.mapping.Environment;
@@ -30,14 +31,14 @@ public class SqlSessionCreator {
         /*
          * 保证SqlSession会关闭*/
         //SqlSession sqlSession = sqlSessionBuilderWithXml();
-        try (SqlSession sqlSession = sqlSessionBuilderWithXml()) {
-            /*
+        /*try (SqlSession sqlSession = sqlSessionBuilderWithXml()) {
+            *//*
              *映射器是一些由你创建的、绑定你映射的语句的接口。映射器接口的实例是从 SqlSession 中获得的。因此从技术层面讲，
              * 任何映射器实例的最大作用域是和请求它们的 SqlSession 相同的。尽管如此，映射器实例的最佳作用域是方法作用域。
              * 也就是说，映射器实例应该在调用它们的方法中被请求，用过之后即可丢弃。
              * 并不需要显式地关闭映射器实例，尽管在整个请求作用域保持映射器实例也不会有什么问题，
              * 但是你很快会发现，像 SqlSession 一样，在这个作用域上管理太多的资源的话会难于控制。
-             * 为了避免这种复杂性，最好把映射器放在方法作用域内。*/
+             * 为了避免这种复杂性，最好把映射器放在方法作用域内。*//*
             StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
             Student student = studentMapper.selectStudent("01");
             sqlSession.commit();
@@ -46,9 +47,24 @@ public class SqlSessionCreator {
             System.out.println(students);
             StudentWithEnum studentWithEnum = studentMapper.selectForEnum();
             System.out.println(studentWithEnum);
-        }
+        }*/
         // closeSqlSession(sqlSession);
+        for (int i = 0; i < 10; i++) {
+            new Thread(SqlSessionCreator::testOne).start();
+        }
     }
+
+    private static void testOne() {
+        long time = System.currentTimeMillis();
+        SqlSessionFactory sqlSessionFactory = SqlSessionBuilder.getSqlSessionFactory();
+        try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
+            StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
+            Student student = studentMapper.selectStudent("01");
+        }
+        System.out.println("testOne spend time: " + (System.currentTimeMillis() - time));
+    }
+
+
 
     /**
      * 这个类可以被实例化、使用和丢弃，一旦创建了 SqlSessionFactory，就不再需要它了。
@@ -84,7 +100,7 @@ public class SqlSessionCreator {
         }
     }
 
-    private static DataSource getBlogDataSource() {
+    private static DataSource getDataSource() {
         //构建数据库连接池
         PooledDataSource dataSource = new PooledDataSource();
         dataSource.setDriver("com.mysql.cj.jdbc.Driver");
@@ -95,7 +111,7 @@ public class SqlSessionCreator {
     }
 
     private static SqlSession sqlSessionBuilder() {
-        DataSource dataSource = getBlogDataSource();
+        DataSource dataSource = getDataSource();
         //构建数据库事务方式
         TransactionFactory transactionFactory = new JdbcTransactionFactory();
         //创建数据库运行环境

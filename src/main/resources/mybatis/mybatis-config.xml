@@ -41,6 +41,11 @@
         如果在 javaType 属性中也同时指定，则注解方式将被忽略-->
         <typeHandler handler="com.mybatis_learn.handler.ExampleTypeHandler" javaType="String"/>
     </typeHandlers>
+    <plugins>
+        <plugin interceptor="com.mybatis_learn.plugins.ExamplePlugin">
+
+        </plugin>
+    </plugins>
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>
