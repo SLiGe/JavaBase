@@ -1,4 +1,4 @@
-package com.java.stringex;
+package com.java.string_learn;
 
 import org.junit.Test;
 

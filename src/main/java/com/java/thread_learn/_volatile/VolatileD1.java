@@ -1,6 +1,5 @@
-package com.java.thread.volatiles;
+package com.java.thread_learn._volatile;
 
-import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -22,7 +21,7 @@ public class VolatileD1 {
 
     private void m2() {
         for (int i = 0; i < 10; i++) {
-            //当thread-1拿到atomicInteger为1000时，thread-2进行了atomicInteger自增为1001
+            //当thread-1拿到atomicInteger为1000时，thread_learn-2进行了atomicInteger自增为1001
 //            if (atomicInteger.get() < 1000)
                 atomicInteger.incrementAndGet();
         }

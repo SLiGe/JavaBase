@@ -1,4 +1,4 @@
-package com.java.thread.volatiles;
+package com.java.thread_learn._volatile;
 
 /**
  * @author Gary

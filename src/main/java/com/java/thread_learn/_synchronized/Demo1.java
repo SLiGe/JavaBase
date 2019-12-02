@@ -1,6 +1,8 @@
-package com.java.thread.synchronizeds;
+package com.java.thread_learn._synchronized;
 
 /**
+ * 同步不具有继承性
+ *
  * @author Gary
  * @since 2019/11/26 13:04
  */

@@ -1,10 +1,9 @@
-package com.java.lists;
+package com.java.list_learn;
 
 import org.junit.Test;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;

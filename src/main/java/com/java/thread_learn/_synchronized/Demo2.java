@@ -1,4 +1,4 @@
-package com.java.thread.synchronizeds;
+package com.java.thread_learn._synchronized;
 
 /**
  * @author Gary
