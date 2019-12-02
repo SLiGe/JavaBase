@@ -21,11 +21,11 @@
         <result column="s_birth" jdbcType="VARCHAR" property="sBirth"/>
         <!--自动映射器（auto-mapper）会自动地选用 EnumOrdinalTypeHandler 来处理，
         所以如果我们想用普通的 EnumTypeHandler，就必须要显式地为那些 SQL 语句设置要使用的类型处理器。-->
-        <result column="s_sex" property="sSex" typeHandler="org.apache.ibatis.type.EnumTypeHandler"/>
+        <result column="s_sex" property="sSex" typeHandler="com.mybatis_learn.handler.EnumTypeHandler"/>
     </resultMap>
     <select id="selectForEnum" resultType="studentWithEnum">
         select *
         from Student
-        limit 1
+        where s_id = '07'
     </select>
 </mapper>

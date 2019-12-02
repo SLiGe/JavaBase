@@ -23,7 +23,7 @@ public class SqlSessionBuilder {
 
     public static synchronized SqlSessionFactory getSqlSessionFactory() {
         if (sqlSessionFactory == null) {
-            System.out.println("未");
+            System.out.println("未有sqlSessionFactory实例");
             sqlSessionFactory = sqlSessionBuilderWithXml();
         }
         return sqlSessionFactory;

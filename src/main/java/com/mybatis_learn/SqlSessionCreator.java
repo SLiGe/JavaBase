@@ -49,7 +49,7 @@ public class SqlSessionCreator {
             System.out.println(studentWithEnum);
         }*/
         // closeSqlSession(sqlSession);
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 1; i++) {
             new Thread(SqlSessionCreator::testOne).start();
         }
     }
@@ -60,6 +60,9 @@ public class SqlSessionCreator {
         try (SqlSession sqlSession = sqlSessionFactory.openSession()) {
             StudentMapper studentMapper = sqlSession.getMapper(StudentMapper.class);
             Student student = studentMapper.selectStudent("01");
+            StudentWithEnum studentWithEnum = studentMapper.selectForEnum();
+            System.out.println(studentWithEnum);
+            System.out.println(studentWithEnum.getSSex().getCode() + " "+studentWithEnum.getSSex().getValue());
         }
         System.out.println("testOne spend time: " + (System.currentTimeMillis() - time));
     }

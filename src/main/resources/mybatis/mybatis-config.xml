@@ -40,6 +40,7 @@
         <!--在类型处理器的类上（TypeHandler class）增加一个 @MappedTypes 注解来指定与其关联的 Java 类型列表。
         如果在 javaType 属性中也同时指定，则注解方式将被忽略-->
         <typeHandler handler="com.mybatis_learn.handler.ExampleTypeHandler" javaType="String"/>
+        <typeHandler handler="com.mybatis_learn.handler.EnumTypeHandler" javaType="com.mybatis_learn.enums.SexEnum"/>
     </typeHandlers>
     <plugins>
         <plugin interceptor="com.mybatis_learn.plugins.ExamplePlugin">
