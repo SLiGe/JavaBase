@@ -3,7 +3,7 @@ package com.java.thread_learn._interrupt;
 /**
  * 通过interrupt来停止线程
  * 线程停止方式stop已废弃:释放了对象锁，导致数据不一致
- * 暂停线程 suspend ,恢复线程 resume 会造成锁独占现象，造成死锁
+ * 暂停线程 suspend[səˈspend],恢复线程 resume 会造成锁独占现象，造成死锁
  *
  * @author Gary
  * @since 2019/12/02 15:47
