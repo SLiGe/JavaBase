@@ -8,7 +8,7 @@ public class WaitHasParam extends Thread {
 
     private final Object lock;
 
-    public WaitHasParam(Object lock) {
+    private WaitHasParam(Object lock) {
         super();
         this.lock = lock;
     }
