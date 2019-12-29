@@ -98,5 +98,15 @@ docker images                 #查看镜像
 docker run --name 指定名称 -d image #-d 守护式容器
 docker ps                     #查看正在运行的容器
 docker attach --sig-proxy=false containerId #连接到容器查看日志
-
+docker rename localcontainername newlocalcontainer  #修改容器名
+docker update --restart=always redis_dev
+```
+## 6.常用命令
+```bash
+#1.启动mysql
+docker run -itd --name mysql-test -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 mysql:5.6
+#2.启动rabbitmq
+docker run -d --name rabbitmq_dev -p 5672:5672 -p 15672:15672 -v `pwd`/data:/var/lib/rabbitmq --hostname rabbit_dev -e RABBITMQ_DEFAULT_VHOST=my_vhost  -e RABBITMQ_DEFAULT_USER=guest -e RABBITMQ_DEFAULT_PASS=guest rabbitmq:3.8-rc-management
+#3.启动redis
+docker run -dit -p 6379:6379 -v /usr/local/etc/redis/redis.conf:/etc/redis/redis.conf  --name redis2 redis:latest redis-server /etc/redis/redis.conf
 ```

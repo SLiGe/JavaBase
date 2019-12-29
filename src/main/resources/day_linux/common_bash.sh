@@ -44,3 +44,14 @@ chown -R root:root /tmp/src #将目录 /tmp/src 中所有文件的所有者和�
 #8.用户
 groupadd groupname #创建组
 useradd -g groupname username #创建用户并指定组
+
+#9 配置NAT模式
+
+```bash
+vim /etc/sysconfig/network-scripts/ifcfg-[ens33]
+BOOTROTO="static"
+IPADDR="192.168.137.3"
+GATEWAY="192.168.137.2"
+DNS1=114.114.114.114
+service network restart
+```
