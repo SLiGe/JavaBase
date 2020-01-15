@@ -10,6 +10,16 @@ import java.io.*;
  */
 public class TransientDe {
 
+    /**
+     * Serializable
+     * 用处：
+     * 1.对象状态持久化
+     * 2.网络远程调用，用于传递和返回对象
+     * 缺点：
+     * 1.序列化后的形式比较大，浪费空间，序列化/反序列化的性能也比较低
+     * 2.它是Java特有的技术，不能与其他语言交互
+     */
+
     @Test
     public void getSerializableObj() throws Exception {
         TransientObj obj = new TransientObj();
