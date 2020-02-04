@@ -11,9 +11,10 @@ import java.time.format.DateTimeFormatter;
 public class FileReadObj {
 
     public static void main(String[] args) throws IOException {
-        String path = "C:\\Users\\Administrator\\Desktop\\aa.bmp";
+        String path = "E:\\电子书\\Java编程的逻辑.pdf";
 
         File file = new File(path);
+        System.out.println(file.getCanonicalPath());
         File file2 = new File("C:\\Users\\Administrator\\Desktop\\bb.bmp");
         try (FileInputStream inputStream = new FileInputStream(file); FileOutputStream outputStream = new FileOutputStream(file2)) {
             byte[] bytes = new byte[1024];
