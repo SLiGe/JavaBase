@@ -18,3 +18,11 @@ create table #tmp select distinct *  from  tableName --创建临时表
 TRUNCATE tableName -- 删除原表数据
 INSERT INto tableName SELECT * FROM #tmp
 drop table #tmp
+
+-- update
+UPDATE table_references SET col_name1=expr1 [, col_name2=expr2 ...]
+[WHERE where_definition]
+-- 例子
+
+update landleveldata a, gdqlpj b set a.gqdltks= b.gqdltks, a.bztks=
+b.bztks where a.GEO_Code=b.lxqdm
