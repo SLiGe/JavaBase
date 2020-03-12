@@ -99,7 +99,7 @@ docker run --name 指定名称 -d image #-d 守护式容器
 docker ps                     #查看正在运行的容器
 docker attach --sig-proxy=false containerId #连接到容器查看日志
 docker rename localcontainername newlocalcontainer  #修改容器名
-docker update --restart=always redis_dev
+docker update --restart=always/no/on-failure:num redis_dev #修改容器自启
 ```
 ## 6.常用命令
 ```bash

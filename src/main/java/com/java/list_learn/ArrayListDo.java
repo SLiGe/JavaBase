@@ -1,9 +1,13 @@
 package com.java.list_learn;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.ToString;
 import org.junit.Test;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -33,6 +37,35 @@ public class ArrayListDo {
         Date date = new Date();
         Timestamp timestamp = Timestamp.valueOf(sdf.format(date));
         System.out.println(timestamp);
+    }
+
+    @Test
+    public void forList() {
+        List<A> list = new ArrayList<A>() {{
+            add(new A("1",2));
+            add(new A("2",3));
+        }};
+        /*for (A s : list) {
+            list.remove(s);
+            s = new A("4",5);
+        }*/
+       // list.forEach(System.out::println);
+        list.forEach(a -> {
+            if (a.getA().equals("1")){
+                return;
+            }
+            System.out.println(a);
+        });
+    }
+
+    @ToString
+    @AllArgsConstructor
+    @Data
+    static
+    class A {
+        private String a;
+        private int b;
+
     }
 
     private <T> void generateArray(T t) {
