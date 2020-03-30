@@ -47,6 +47,7 @@ useradd -g groupname username #创建用户并指定组
 
 #9 配置NAT模式
 
+# shellcheck disable=SC2046
 ```bash
 vim /etc/sysconfig/network-scripts/ifcfg-[ens33]
 BOOTROTO="static"
@@ -55,3 +56,6 @@ GATEWAY="192.168.137.2"
 DNS1=114.114.114.114
 service network restart
 ```
+
+#10.查看磁盘占用
+du -sh *
