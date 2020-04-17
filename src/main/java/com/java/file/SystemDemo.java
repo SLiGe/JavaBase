@@ -14,6 +14,8 @@ public class SystemDemo {
     public static void main(String[] args) {
         getSystem();
         writeTxt();
+        int i = Math.subtractExact(10,5);
+        System.out.print(i);
     }
 
     private static void getSystem() {
