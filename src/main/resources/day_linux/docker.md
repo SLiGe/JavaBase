@@ -109,4 +109,6 @@ docker run -itd --name mysql-test -p 3306:3306 -e MYSQL_ROOT_PASSWORD=123456 mys
 docker run -d --name rabbitmq_dev -p 5672:5672 -p 15672:15672 -v `pwd`/data:/var/lib/rabbitmq --hostname rabbit_dev -e RABBITMQ_DEFAULT_VHOST=my_vhost  -e RABBITMQ_DEFAULT_USER=guest -e RABBITMQ_DEFAULT_PASS=guest rabbitmq:3.8-rc-management
 #3.启动redis
 docker run -dit -p 6379:6379 -v /usr/local/etc/redis/redis.conf:/etc/redis/redis.conf  --name redis2 redis:latest redis-server /etc/redis/redis.conf
+#4.启动Consul
+docker run --name consul-server -d -p 8500:8500 -p 8300:8300 -p 8301:8301 -p 8302:8302 -p 8600:8600 -v /home/consul/config/:/consul/config/ -v /home/consul/data/:/consul/data/  consul agent -server -bootstrap-expect=1 -ui -bind=0.0.0.0 -client=0.0.0.0 -data-dir=/consul/data -config-dir=/consul/config
 ```
