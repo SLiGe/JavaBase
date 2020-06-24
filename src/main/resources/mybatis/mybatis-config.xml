@@ -32,18 +32,18 @@
     <!--类型别名-->
     <typeAliases>
         <!--定义包，mybatis会去包下搜索别名,规则为类名首字母小写-->
-        <package name="com.mybatis_learn.pojo"/>
-        <!--<typeAlias type="com.mybatis_learn.pojo.Student" alias="student"/>-->
+        <package name="com.mybatis.pojo"/>
+        <!--<typeAlias type="com.mybatis.pojo.Student" alias="student"/>-->
     </typeAliases>
     <!--自定义类型处理器-->
     <typeHandlers>
         <!--在类型处理器的类上（TypeHandler class）增加一个 @MappedTypes 注解来指定与其关联的 Java 类型列表。
         如果在 javaType 属性中也同时指定，则注解方式将被忽略-->
-        <typeHandler handler="com.mybatis_learn.handler.ExampleTypeHandler" javaType="String"/>
-        <typeHandler handler="com.mybatis_learn.handler.EnumTypeHandler" javaType="com.mybatis_learn.enums.SexEnum"/>
+        <typeHandler handler="com.mybatis.handler.ExampleTypeHandler" javaType="String"/>
+        <typeHandler handler="com.mybatis.handler.EnumTypeHandler" javaType="com.mybatis.enums.SexEnum"/>
     </typeHandlers>
     <plugins>
-        <plugin interceptor="com.mybatis_learn.plugins.ExamplePlugin">
+        <plugin interceptor="com.mybatis.plugins.ExamplePlugin">
 
         </plugin>
     </plugins>
