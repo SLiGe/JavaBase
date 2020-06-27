@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--构造方式注入-->
+    <bean class="com.spring.bean.ioc.Book" name="book">
+        <constructor-arg index="0" name="name" value="月亮与六便士"/>
+        <constructor-arg index="1" name="page" value="120"/>
+    </bean>
+    <!--set 方式注入 ,此时的name值应该是java根据get/set方法分析出的属性名-->
+    <bean class="com.spring.bean.ioc.Book" name="book2">
+        <property name="name" value="人间失格"/>
+        <property name="page" value="130"/>
+    </bean>
+    <!--p命名空间注入,实际上也是set方式注入-->
+    <bean class="com.spring.bean.ioc.Book" name="book3" p:name="天天向上" p:page="220"/>
+    <!--静态工厂注入-->
+    <bean factory-method="getInstance" class="com.spring.bean.ioc.factory.OkHttpStaticFactory" id="okHttpClient"/>
+    <!--实例工厂注入-->
+    <bean class="com.spring.bean.ioc.factory.OkHttpExampleFactory" id="okHttpExampleFactory"/>
+    <bean factory-bean="okHttpExampleFactory" factory-method="getInstance" id="exampleOkHttpClient"/>
+</beans>
