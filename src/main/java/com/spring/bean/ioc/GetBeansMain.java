@@ -1,11 +1,9 @@
 package com.spring.bean.ioc;
 
-import okhttp3.*;
-import org.jetbrains.annotations.NotNull;
+import com.spring.bean.ioc.code.BeanComponent;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import java.io.IOException;
-import java.util.Objects;
 
 /**
  * @author zJiaLi
@@ -14,6 +12,16 @@ import java.util.Objects;
 public class GetBeansMain {
 
     public static void main(String[] args) {
+        getBeanByComponent();
+    }
+
+    private static void getBeanByComponent() {
+        AnnotationConfigApplicationContext act = new AnnotationConfigApplicationContext(BeanComponent.class);
+        Book book = (Book) act.getBean("book");
+        System.out.println(book);
+    }
+
+    private static void getBeanByXml() {
         ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("spring-beans.xml");
         //最好使用bean的name属性获取该bean, 避免多个相同类型的bean实例
         Book book = (Book) ctx.getBean("book");

@@ -6,6 +6,25 @@
     <bean class="com.spring.bean.ioc.Book" name="book">
         <constructor-arg index="0" name="name" value="月亮与六便士"/>
         <constructor-arg index="1" name="page" value="120"/>
+        <!--List属性-->
+        <constructor-arg index="2" name="hobbies">
+            <list>
+                <value>体育</value>
+                <value>跑步</value>
+            </list>
+        </constructor-arg>
+        <!--Map属性-->
+        <constructor-arg index="3" name="anotherAttr">
+            <map>
+                <entry key="nature" value="qui"/>
+            </map>
+        </constructor-arg>
+        <!--Properties属性-->
+        <constructor-arg index="4" name="properties">
+            <props>
+                <prop key="Duty">Clean</prop>
+            </props>
+        </constructor-arg>
     </bean>
     <!--set 方式注入 ,此时的name值应该是java根据get/set方法分析出的属性名-->
     <bean class="com.spring.bean.ioc.Book" name="book2">
