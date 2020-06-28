@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd ">
     <!--构造方式注入-->
     <bean class="com.spring.bean.ioc.Book" name="book">
         <constructor-arg index="0" name="name" value="月亮与六便士"/>
@@ -38,4 +38,19 @@
     <!--实例工厂注入-->
     <bean class="com.spring.bean.ioc.factory.OkHttpExampleFactory" id="okHttpExampleFactory"/>
     <bean factory-bean="okHttpExampleFactory" factory-method="getInstance" id="exampleOkHttpClient"/>
+    <!--profile多环境切换注入-->
+    <beans profile="dev">
+        <bean class="com.spring.bean.ioc.profile.DataSource" id="dataSource">
+            <property name="url" value="jdbc:mysql://127.0.0.1/dev"/>
+            <property name="username" value="root"/>
+            <property name="password" value="123456"/>
+        </bean>
+    </beans>
+    <beans profile="prod">
+        <bean class="com.spring.bean.ioc.profile.DataSource" id="dataSource">
+            <property name="url" value="jdbc:mysql://127.0.0.1/prod"/>
+            <property name="username" value="root"/>
+            <property name="password" value="123456"/>
+        </bean>
+    </beans>
 </beans>
