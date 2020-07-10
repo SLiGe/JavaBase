@@ -17,7 +17,8 @@ import java.util.Map;
 public class JdbcMain {
 
     public static void main(String[] args) {
-        getXmlDataSource();
+        //getXmlDataSource();
+        processTransactional();
     }
 
     public static void getXmlDataSource() {
@@ -27,9 +28,15 @@ public class JdbcMain {
         userService.updateMoney();
     }
 
+    public static void processTransactional() {
+        ClassPathXmlApplicationContext xtc = new ClassPathXmlApplicationContext("spring-component.xml");
+        UserService userService = xtc.getBean(UserService.class);
+        userService.addUser("Pom",35,2000);
+        System.out.println("addUser is done!!!");
+    }
+
     public static void getAnnotationDataSource() {
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(JdbcConfig.class);
-
         JdbcTemplate jdbcTemplate = ctx.getBean(JdbcTemplate.class);
         // jdbcTemplate.execute("insert into user(name,age) values ('哈哈',16)");
         Map<String, Object> map = jdbcTemplate.queryForMap("select * from user");

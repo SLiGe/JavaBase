@@ -23,4 +23,9 @@ public class UserService {
         int a = 1 / 0;
         userDao.minMoney("哈哈", 100);
     }
+
+    @Transactional(rollbackFor = Exception.class)
+    public void addUser(String name,Integer age,Integer money){
+        userDao.addUser(name, age, money);
+    }
 }
