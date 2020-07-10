@@ -13,7 +13,8 @@ public class OkHttpExampleFactory {
 
     public OkHttpClient getInstance(){
         if (okHttpClient == null){
-            return new OkHttpClient.Builder().build();
+            okHttpClient = new OkHttpClient.Builder().build();
+            return okHttpClient;
         }
         return okHttpClient;
     }
