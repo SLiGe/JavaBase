@@ -19,6 +19,30 @@ public class TransientDe {
      * 1.序列化后的形式比较大，浪费空间，序列化/反序列化的性能也比较低
      * 2.它是Java特有的技术，不能与其他语言交互
      */
+    private static void getParentSerializable() throws Exception {
+        Student student = new Student("Lucy");
+        FileOutputStream fos = new FileOutputStream("student.txt");
+        try (ObjectOutputStream os = new ObjectOutputStream(fos)) {
+            os.writeObject(student);
+            os.flush();
+        }
+        fos.close();
+        FileInputStream fis = new FileInputStream("student.txt");
+        ObjectInputStream ois = new ObjectInputStream(fis);
+        Student student2 = (Student)ois.readObject();
+        ois.close();
+        fis.close();
+        System.out.println(student2);
+    }
+
+    public static void main(String[] args) throws Exception {
+        //getParentSerializable();
+        String a = "aaaa,";
+        String[] split = a.split(",");
+        for (String s : split) {
+            System.out.println(s);
+        }
+    }
 
     @Test
     public void getSerializableObj() throws Exception {
