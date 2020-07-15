@@ -47,8 +47,7 @@ public class UserDao {
 
     public void testQueryOne() throws SQLException, ClassNotFoundException {
         SqlSession sqlSession = ormConfig.buildSqlSession();
-        User user = new User();
-        User o = (User)sqlSession.queryOne(user, 1);
+        User o = (User)sqlSession.queryOne(User.class, 1);
         System.out.println(o);
         sqlSession.close();
     }
