@@ -111,4 +111,11 @@ public class StringSplit {
         }
         return sb.toString();
     }
+
+    public static void main(String[] args) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("aa,bb,cc,dd,");
+         sb.delete(sb.lastIndexOf(","),sb.length());
+        System.out.println(sb.toString());
+    }
 }

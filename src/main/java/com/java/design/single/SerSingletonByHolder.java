@@ -23,7 +23,7 @@ public class SerSingletonByHolder {
      * 只有getInstance()被调用时，才会加载SerSingletonTwo,从而初始化instance
      */
     private static class SerSingletonTwoHolder {
-        private static SerSingletonByHolder instance = new SerSingletonByHolder();
+        private static final SerSingletonByHolder instance = new SerSingletonByHolder();
     }
 
     public static SerSingletonByHolder getInstance() {

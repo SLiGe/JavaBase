@@ -30,9 +30,7 @@ public class SupplierDemo {
     }
 
     public static void main(String[] args) {
-        String s = getString(() -> {
-            return "Hello";
-        });
+        String s = getString(() -> "Hello");
 
         String s1 = getString(() -> "World");
         System.out.println(s);
