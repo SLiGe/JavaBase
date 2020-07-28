@@ -1,5 +1,8 @@
 package com.lambda.method.reference;
 
+import java.util.function.Function;
+import java.util.function.Supplier;
+
 /**
  * 构造函数引用
  * @author zJiaLi
@@ -13,6 +16,12 @@ public class ConstructorReference {
         Dog d1 = makeNoArgs.make();
         Dog d2 = make1Args.make("Jack");
         Dog d3 = make2Args.make(1, "Jack");
+        Supplier<Dog> su1 = Dog::new;
+        Dog dog = su1.get();
+        System.out.println(dog);
+        Function<String,Dog> fu1 = Dog::new;
+        Dog lucy = fu1.apply("Lucy");
+        System.out.println(lucy);
     }
 }
 
@@ -42,5 +51,13 @@ class Dog {
     public Dog(int age, String name) {
         this.age = age;
         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "Dog{" +
+                "age=" + age +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

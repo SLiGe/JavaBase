@@ -36,6 +36,11 @@ public class ConsumerDemo {
             System.out.println(t);
             System.out.println(t.toUpperCase());
         });
+        System.out.println("==============");
+        me("ABCD", String::toLowerCase, (t) -> {
+            System.out.println(t);
+            System.out.println(t.toUpperCase());
+        });
 
         String[] arr = {"小明,17", "小红,20", "小兰,30"};
         me(arr, (t) -> System.out.print("姓名:" + t.split(",")[0] + "."), (t) -> System.out.println("年龄:" + t.split(",")[1] + "."));
